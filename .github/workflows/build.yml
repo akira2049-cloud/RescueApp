@@ -30,7 +30,6 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO
 
-          # Create IPA package structure
           mkdir -p Payload
           cp -r build/Build/Products/Release-iphoneos/RescueApp.app Payload/
           zip -r RescueApp.ipa Payload

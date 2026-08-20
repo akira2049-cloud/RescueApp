@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This app requires your background location to send coordinates to contacts during an accident.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app requires location access to monitor your travel route.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>We use motion sensors to detect sudden impacts and vehicle crashes.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+        <string>processing</string>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>whatsapp</string>
+    </array>
+</dict>
+</plist>
