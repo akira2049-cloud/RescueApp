@@ -1,0 +1,16 @@
+﻿name: RescueApp
+options:
+  bundleIdPrefix: com.rescueapp
+targets:
+  RescueApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: RescueApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.rescueapp.app
+        INFOPLIST_FILE: RescueApp/Info.plist
+        ENABLE_BITCODE: NO
+        GENERATE_INFOPLIST_FILE: NO
