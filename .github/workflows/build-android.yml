@@ -22,16 +22,26 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: 8.5
-
       - name: Build Android APK
         run: |
           cd android
-          gradle wrapper
-          ./gradlew assembleDebug --stacktrace
+          mkdir -p gradle/wrapper
+          
+          # Configure official Gradle 8.5 wrapper
+          cat << 'EOF' > gradle/wrapper/gradle-wrapper.properties
+          distributionBase=GRADLE_USER_HOME
+          distributionPath=wrapper/dists
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.5-bin.zip
+          zipStoreBase=GRADLE_USER_HOME
+          zipStorePath=wrapper/dists
+          EOF
+
+          # Download official gradlew script
+          curl -sL https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradlew -o gradlew
+          chmod +x gradlew
+
+          # Build debug APK
+          ./gradlew assembleDebug --no-daemon --no-build-cache --stacktrace
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
